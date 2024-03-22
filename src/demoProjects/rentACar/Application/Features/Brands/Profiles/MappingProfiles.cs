@@ -1,6 +1,8 @@
 ﻿using Application.Features.Brands.Commands.CreateBrand;
 using Application.Features.Brands.Dtos;
+using Application.Features.Brands.Models;
 using AutoMapper;
+using Core.Persistence.Paging;
 using Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -19,6 +21,9 @@ namespace Application.Features.Brands.Profiles
             //reverse map reverse class types for mapping process
             //CreateMap<CreatedBrandDto, Brand>();
             CreateMap<Brand, CreateBrandCommand>().ReverseMap();
+            CreateMap<IPaginate<Brand>, BrandListModel>().ReverseMap();
+            CreateMap<Brand, BrandListDto>().ReverseMap();
+            CreateMap<Brand, BrandGetByIdDto>().ReverseMap();
         }
     }
 }
